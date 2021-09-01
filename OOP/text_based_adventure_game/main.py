@@ -1,5 +1,6 @@
 from room import Room # import data from room file
 from item import Item # get from item file 
+from rpginfo import RPGInfo
 # create an object 
 kitchen = Room("kitchen")
 kitchen.set_description(" A dark and dirty room")
@@ -23,7 +24,15 @@ kitchen.get_details()
 dining_hall.get_details() 
 ballroom.get_details()
 
+spooky_castle = RPGInfo("The Spooky Castle")
+RPGInfo.welcome() 
+
+spooky_castle.info() 
 current_room = kitchen
+
+RPGInfo.author = "Cao Toan Khoa" 
+RPGInfo.credits() 
+
 
 while True : 
     print("\n")
@@ -32,5 +41,6 @@ while True :
     command = input(">")
 
     current_room = current_room.move(command) 
+
 
 

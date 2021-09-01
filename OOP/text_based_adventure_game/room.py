@@ -1,29 +1,37 @@
 class Room() : 
-    def __init__(self,room_name) : 
-        self.name = room_name 
-        self.description = None 
+    def __init__(self) : 
+        self._name = None 
+        self._description = None 
         self.linked_rooms = {}
 
-    # adding more methods in python 
+    # adding more methods in python
+    # getter in python return results  
+    @property 
+    def description(self) : 
+        string_attribute = str(self._description)
 
-    def set_description(self,room_description) : 
-        self.description = room_description 
+        return string_attribute   
+    # setter 
+    @description.setter
+    def description(self, string) : 
+         if len(string) > 10 :
+             print("type again? Must least than 10 characaters")
 
-    
-    def get_description(self) : 
-        return self.desscription 
+         else : 
+             self._description = string  
+               
+            
+    @property # getter equally  
+    def name(self) : 
+        return self._name     
+    @name.setter 
+    def name(self,room_name) : 
+        self._name = room_name 
 
-    def set_name(self,room_name1) : 
-        self.name = room_name1 
-
-    
-    
-    def get_name(self) : 
-        return self.name  
     def describe(self) : 
-        print(self.description)
-
-
+        print(self._description)
+    
+    
     def link_room(self,room_to_link,direction) : 
         self.linked_rooms[direction] = room_to_link
         print(self.name + "linked rooms : " + repr(self.linked_rooms))
