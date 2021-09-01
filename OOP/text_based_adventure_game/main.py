@@ -2,18 +2,21 @@ from room import Room # import data from room file
 from item import Item # get from item file 
 from rpginfo import RPGInfo
 # create an object 
-kitchen = Room("kitchen")
-kitchen.set_description(" A dark and dirty room")
+kitchen = Room()
+kitchen.name = "kitchen"
+#kitchen.description(" A dark room")
 # create a new object 
 
 # create a dining_hall 
 
-dining_hall = Room("dining_hall")
-dining_hall.set_description(" A large room with something")
+dining_hall = Room()
+dining_hall.name = "dining_hall"
+#dining_hall.description(" A large room with something")
 
 # 
-ballroom = Room("Ballroom")
-ballroom.set_description(" A vast room with a shiny something")
+ballroom = Room()
+ballroom.name = "Ballroom"
+#ballroom.description(" A vast room with a shiny something")
 
 kitchen.link_room(dining_hall,"south")
 dining_hall.link_room(kitchen,"north")
@@ -25,7 +28,7 @@ dining_hall.get_details()
 ballroom.get_details()
 
 spooky_castle = RPGInfo("The Spooky Castle")
-RPGInfo.welcome() 
+RPGInfo.welcome("Move game") 
 
 spooky_castle.info() 
 current_room = kitchen

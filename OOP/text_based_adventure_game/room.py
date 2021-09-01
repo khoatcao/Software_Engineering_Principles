@@ -8,19 +8,18 @@ class Room() :
     # getter in python return results  
     @property 
     def description(self) : 
-        string_attribute = str(self._description)
+        if self._description is None : 
+            print("You did not assign name of description")
 
-        return string_attribute   
+        else : 
+            return self._description 
     # setter 
     @description.setter
-    def description(self, string) : 
-         if len(string) > 10 :
-             print("type again? Must least than 10 characaters")
-
-         else : 
-             self._description = string  
-               
-            
+    def description(self,value) :
+        if self._description != str : 
+            print("Invalid value") 
+        else : 
+            self._description = value          
     @property # getter equally  
     def name(self) : 
         return self._name     
@@ -40,7 +39,7 @@ class Room() :
         for direction in self.linked_rooms : 
             room = self.linked_rooms[direction]
 
-            print("The " + room.get_name() + " is " + direction)
+            print("The " + room.name + " is " + direction)
 
     def move(self,direction) : 
 

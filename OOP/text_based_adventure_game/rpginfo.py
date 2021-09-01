@@ -5,7 +5,7 @@ class RPGInfo() :
         self.title = title_game 
 
     def welcome(self) : 
-        print("Welcome to " + self.title_game)
+        print("Welcome to " + str(self.title))
 
     @staticmethod 
     def info() : 
