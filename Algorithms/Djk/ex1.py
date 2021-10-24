@@ -21,8 +21,7 @@ def ex1(s) :
     pq.put(Node(s,0)) 
     dist[s] = 0 
     
-    while pq.empty() == False : 
-
+    while pq.empty() == False : s 
         top = pq.get() 
         u  = top.id 
         w = top.dist 

@@ -1,9 +1,10 @@
 from heapq import heappush, heappop 
 
+INF = int(1e9) 
 
 def Dijkstra(s,f) : 
 
-    dist = [10 ** 9 ] * (n+1)
+    dist = [INF] * (n+1)
 
     pq = [(0,s)] 
 
