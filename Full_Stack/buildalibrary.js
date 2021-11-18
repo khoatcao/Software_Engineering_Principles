@@ -3,7 +3,7 @@ class Media{
     constructor(title){
 
         this._title = title; 
-        this._isCheckOut = False; 
+        this._isCheckedOut = false; 
         this._ratings = []; 
 
     }
@@ -13,9 +13,9 @@ class Media{
         return this._title; 
     }
 
-    get _isCheckOut(){
+    get isCheckOut(){
 
-        return this._isCheckOut; 
+        return this._isCheckedOut; 
     }
 
     get ratings(){
@@ -25,7 +25,7 @@ class Media{
 
     // setter 
 
-   set isCheckOut(newCheckOut){
+   set isChecedkOut(newCheckOut){
 
     this._isCheckOut = newCheckOut; 
 
@@ -64,7 +64,7 @@ class Media{
 // class 1 
 class Book extends Media{
 
-    constuctor(author,title,pages){
+    constructor(author,title,pages){
         
         super(title); 
         this._author = author;
@@ -101,8 +101,8 @@ class Book extends Media{
 
 // class 2 
 
-class Movie extends media{ 
- constuctor(director,title,runTime){
+class Movie extends Media{ 
+ constructor(director,title,runTime){
 
     super(title);
 
@@ -179,3 +179,8 @@ console.log(historyOfEverything.isCheckedOut);
 historyOfEverything.addRating(4,5,5); 
 console.log(historyOfEverything.getAverageRating());
 
+
+speed.toggleCheckOutStatus();
+console.log(speed.isCheckedOut); 
+console.log(speed.addRating(1,1,5)); 
+console.log(speed.getAverageRating()); 
