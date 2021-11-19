@@ -6,6 +6,7 @@ class Media{
         this._isCheckedOut = false; 
         this._ratings = []; 
 
+
     }
 
     get title(){
@@ -52,7 +53,15 @@ class Media{
 
     addRating(rating){
 
-       this._ratings.push(rating);
+        if (rating > 5) {
+
+            console.log("Rating is between 1 and 5"); 
+
+            return 'Rating is between 1 and 5'; 
+
+        }
+
+        this._ratings.push(rating); 
 
 
 
@@ -138,11 +147,11 @@ class Movie extends Media{
 // class 3 
 
 class CD extends Media {
-    constructor(artist,titlesongs){
+    constructor(artist,titlesongs,title){
 
         super(title); 
         this._artist = artist; 
-        this._songs = songs; 
+        this._songs = []; 
     }
 
     // getter 
@@ -155,23 +164,48 @@ class CD extends Media {
         return this._songs; 
     }
 
-    // methods 
-    getAverageRating(){
+    Shuffle() { 
+
+        
+        for (let i = this._songs.length; i > 0 ; i -- ){
+
+            let j = Math.floor(Math.random() * (i+1)); 
+                [this._song[i],this._song[j] = this._song[j],this._song[i]]; 
+        }
+
 
 
     }
+
+    addSong(newsongs){
+
+        this._songs.push(newsongs); 
+    }
+
+
+}
+
+class Catalog extends Media {
+
+    constructor(medialist,title){
+        super(title)
+        this._Mycatalog = [medialist]; 
+
+    }
+
+    // getter
     
-    toggleCheckOutStatus(){
-
+    get medialist() {
+        return this._medialist; 
     }
-    addRating(){
 
+    set medialist(newmedialist){
+
+        this._Mycatalog.push(newmedialist);
     }
 }
 
-
 const historyOfEverything = new Book('Bill Bryson', 'A Short History of Nearly Everything', 544);
-const speed = new Movie('Jan de Bont', 'Speed', 116);
 
 historyOfEverything.toggleCheckOutStatus(); 
 console.log(historyOfEverything.isCheckedOut);
@@ -179,8 +213,24 @@ console.log(historyOfEverything.isCheckedOut);
 historyOfEverything.addRating(4,5,5); 
 console.log(historyOfEverything.getAverageRating());
 
+const hobbit = new Book('J.R. Tolkien', 'Hobbit', 744);
 
-speed.toggleCheckOutStatus();
-console.log(speed.isCheckedOut); 
-console.log(speed.addRating(1,1,5)); 
-console.log(speed.getAverageRating()); 
+const speed = new Movie('Jan de Bont', 'Speed', 116);
+speed.addRating(1);
+speed.addRating(1);
+speed.addRating(5);
+console.log(speed.getAverageRating());
+const newCd = new CD('Ocean', 'Kasaija Akiiki');
+newCd.addSong('Billy Jean');
+newCd.addSong('Mafia');
+newCd.addSong('Yeke Yeke');
+// print newCd 
+console.log(newCd); 
+
+
+const Test = new Catalog();
+Test.mediaList = historyOfEverything;
+Test.mediaList = speed;
+Test.mediaList = hobbit;
+Test.medialist = newCd; 
+console.log(Test)
