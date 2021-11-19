@@ -147,7 +147,7 @@ class Movie extends Media{
 // class 3 
 
 class CD extends Media {
-    constructor(artist,titlesongs,title){
+    constructor(artist,songs,title){
 
         super(title); 
         this._artist = artist; 
@@ -204,33 +204,42 @@ class Catalog extends Media {
         this._Mycatalog.push(newmedialist);
     }
 }
-
+// book instance 
 const historyOfEverything = new Book('Bill Bryson', 'A Short History of Nearly Everything', 544);
 
+// call methods for books 
 historyOfEverything.toggleCheckOutStatus(); 
-console.log(historyOfEverything.isCheckedOut);
+//console.log(historyOfEverything.isCheckedOut);
+
 
 historyOfEverything.addRating(4,5,5); 
-console.log(historyOfEverything.getAverageRating());
-
-const hobbit = new Book('J.R. Tolkien', 'Hobbit', 744);
+//console.log(historyOfEverything.getAverageRating());
+//
+//const hobbit = new Book('J.R. Tolkien', 'Hobbit', 744);
 
 const speed = new Movie('Jan de Bont', 'Speed', 116);
-speed.addRating(1);
-speed.addRating(1);
-speed.addRating(5);
-console.log(speed.getAverageRating());
-const newCd = new CD('Ocean', 'Kasaija Akiiki');
-newCd.addSong('Billy Jean');
-newCd.addSong('Mafia');
-newCd.addSong('Yeke Yeke');
-// print newCd 
+speed.addRating(1,1,5);
+
+// get averaga rating for Movie 
+
+console.log(speed.getAverageRating()); // print average // output undefined 
+
+/////
+console.log(speed); // output for book instance 
+
+
+
+const newCd = new CD('Ocean', 'Kasaija Akiiki','Fast and Furious');
+newCd.addSong('Billy Jean','Mafia','Yeke Yeke');
+// print newCd
+// 
 console.log(newCd); 
+
 
 
 const Test = new Catalog();
 Test.mediaList = historyOfEverything;
 Test.mediaList = speed;
-Test.mediaList = hobbit;
 Test.medialist = newCd; 
 console.log(Test)
+
